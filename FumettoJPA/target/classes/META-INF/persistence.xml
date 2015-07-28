@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-  <persistence-unit name="FumettoJPA-persistence-unit" transaction-type="JTA">
-    <description>Forge Persistence Unit</description>
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <jta-data-source>java:jboss/jdbc/DerbyEmbeddedDS</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver" />      
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="FumettoJPA-persistence-unit" transaction-type="JTA">
+		<description>Fumetto Persistence Unit</description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/DerbyDS</jta-data-source>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver" />
 			<property name="javax.persistence.jdbc.user" value="app" />
-			<property name="javax.persistence.jdbc.password" value="user" />        
-      <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>			
-    <!-- Scan for annotated classes and Hibernate mapping XML files -->
-    <property name="hibernate.archive.autodetection" value="class, hbm"/>        
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.transaction.flush_before_completion" value="true"/>  
-    </properties>
-  </persistence-unit>
+			<property name="javax.persistence.jdbc.password" value="app" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
+			
+			<!-- Scan for annotated classes and Hibernate mapping XML files -->
+			<property name="hibernate.archive.autodetection" value="class, hbm" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<!-- <property name="hibernate.transaction.flush_before_completion" value="true"/> -->
+		</properties>
+	</persistence-unit>
 </persistence>
