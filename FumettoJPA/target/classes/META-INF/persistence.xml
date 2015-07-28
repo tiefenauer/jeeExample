@@ -16,6 +16,7 @@
 			<!-- Scan for annotated classes and Hibernate mapping XML files -->
 			<property name="hibernate.archive.autodetection" value="class, hbm" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
 			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
 
 			<property name="hibernate.show_sql" value="true" />

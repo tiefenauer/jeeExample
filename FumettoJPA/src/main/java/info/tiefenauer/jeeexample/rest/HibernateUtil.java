@@ -6,7 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import info.tiefenauer.jeeexample.model.AgendaItem;
+import info.tiefenauer.jeeexample.model.Person;
 
 
 public class HibernateUtil {
@@ -79,7 +79,7 @@ public class HibernateUtil {
         //we can set mapping file or class with annotation
         //addClass(Employee1.class) will look for resource
         // com/journaldev/hibernate/model/Employee1.hbm.xml (not good)
-        configuration.addAnnotatedClass(AgendaItem.class);
+        configuration.addAnnotatedClass(Person.class);
          
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         System.out.println("Hibernate Java Config serviceRegistry created");
@@ -95,7 +95,7 @@ public class HibernateUtil {
     }
      
     public static SessionFactory getSessionFactory() {
-        if(sessionFactory == null) sessionFactory = buildSessionFactory();
+        if(sessionFactory == null) sessionFactory = buildSessionAnnotationFactory();
         return sessionFactory;
     }
      

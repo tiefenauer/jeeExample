@@ -20,35 +20,34 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
-import info.tiefenauer.jeeexample.model.AgendaItem;
-
 import javax.ws.rs.core.UriBuilder;
+
+import info.tiefenauer.jeeexample.model.Person;
 
 /**
  * 
  */
 @Stateless
-@Path("/agenda")
+@Path("/person")
 @Transactional
-public class AgendaItemEndpoint {
+public class PersonEndpoint {
 
 	@PersistenceContext(unitName = "JEEExample-persistence-unit")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(AgendaItem entity) {
+	public Response create(Person entity) {
 		em.persist(entity);
 		return Response
-				.created(UriBuilder.fromResource(AgendaItemEndpoint.class).path(String.valueOf(entity.getId())).build())
+				.created(UriBuilder.fromResource(PersonEndpoint.class).path(String.valueOf(entity.getId())).build())
 				.build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") Long id) {
-		AgendaItem entity = em.find(AgendaItem.class, id);
+		Person entity = em.find(Person.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -59,13 +58,16 @@ public class AgendaItemEndpoint {
 	@GET
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
-	public Response findById(@PathParam("id") Long id) {
-		TypedQuery<AgendaItem> findByIdQuery = em.createQuery(
-				"SELECT DISTINCT a FROM AgendaItem a WHERE a.id = :entityId ORDER BY a.id", AgendaItem.class);
+	public Response findById(@PathParam("id") Long id) {		
+		/*
+		TypedQuery<Person> findByIdQuery = em.createQuery(
+				"SELECT DISTINCT a FROM AgendaItem a WHERE a.id = :entityId ORDER BY a.id", Person.class);
 		findByIdQuery.setParameter("entityId", id);
-		AgendaItem entity;
+		*/
+		Person entity;
 		try {
-			entity = findByIdQuery.getSingleResult();
+			//entity = findByIdQuery.getSingleResult();
+			entity = em.find(Person.class, id);
 		} catch (NoResultException nre) {
 			entity = null;
 		}
@@ -77,30 +79,30 @@ public class AgendaItemEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<AgendaItem> listAll(@QueryParam("start") Integer startPosition, @QueryParam("max") Integer maxResult) {
-		TypedQuery<AgendaItem> findAllQuery = em.createQuery("SELECT DISTINCT a FROM AgendaItem a ORDER BY a.id",
-				AgendaItem.class);
+	public List<Person> listAll(@QueryParam("start") Integer startPosition, @QueryParam("max") Integer maxResult) {
+		TypedQuery<Person> findAllQuery = em.createQuery("SELECT DISTINCT p FROM Person p ORDER BY p.id",
+				Person.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<AgendaItem> results = findAllQuery.getResultList();
+		final List<Person> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") Long id, AgendaItem entity) {
+	public Response update(@PathParam("id") Long id, Person entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 		if (!id.equals(entity.getId())) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(AgendaItem.class, id) == null) {
+		if (em.find(Person.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {
