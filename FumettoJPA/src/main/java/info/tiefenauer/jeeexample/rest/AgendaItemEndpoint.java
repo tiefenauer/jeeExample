@@ -1,4 +1,4 @@
-package ch.bbv.fumetto.rest;
+package info.tiefenauer.jeeexample.rest;
 
 import java.util.List;
 
@@ -20,9 +20,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 
-import ch.bbv.fumetto.model.AgendaItem;
+import info.tiefenauer.jeeexample.model.AgendaItem;
+
+import javax.ws.rs.core.UriBuilder;
 
 /**
  * 
@@ -31,7 +32,8 @@ import ch.bbv.fumetto.model.AgendaItem;
 @Path("/agenda")
 @Transactional
 public class AgendaItemEndpoint {
-	@PersistenceContext(unitName = "FumettoJPA-persistence-unit")
+
+	@PersistenceContext(unitName = "JEEExample-persistence-unit")
 	private EntityManager em;
 
 	@POST

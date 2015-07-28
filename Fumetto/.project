@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Fumetto</name>
+	<name>JEEExample</name>
 	<comment></comment>
 	<projects>
-		<project>FumettoEJB</project>
+		<project>JEEExampleEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

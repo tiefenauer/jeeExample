@@ -1,4 +1,4 @@
-package ch.bbv.fumetto.rest;
+package info.tiefenauer.jeeexample.rest;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;
@@ -6,7 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import ch.bbv.fumetto.model.AgendaItem;
+import info.tiefenauer.jeeexample.model.AgendaItem;
 
 
 public class HibernateUtil {

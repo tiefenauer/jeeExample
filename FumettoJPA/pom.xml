@@ -2,8 +2,8 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ch.bbv.fumetto</groupId>
-  <artifactId>FumettoJPA</artifactId>
+  <groupId>info.tiefenauer.jeeexample</groupId>
+  <artifactId>JEEExampleJPA</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
@@ -65,7 +65,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>FumettoJPA</finalName>
+    <finalName>JEEExampleJPA</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>

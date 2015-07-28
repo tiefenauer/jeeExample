@@ -1,4 +1,4 @@
-package ch.bbv.fumetto.rest;
+package info.tiefenauer.jeeexample.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

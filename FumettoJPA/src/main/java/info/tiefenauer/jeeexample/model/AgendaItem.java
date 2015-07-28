@@ -1,4 +1,4 @@
-package ch.bbv.fumetto.model;
+package info.tiefenauer.jeeexample.model;
 
 import javax.persistence.Entity;
 import java.io.Serializable;

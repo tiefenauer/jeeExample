@@ -5,8 +5,8 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection properties - Driver, URL, user, password -->
-        <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
-        <property name="hibernate.connection.url">jdbc:derby://localhost/fumetto;create=true</property>
+        <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+        <property name="hibernate.connection.url">jdbc:derby://localhost:1527/jeeexampledb;create=true</property>
         <property name="hibernate.connection.username">app</property>
         <property name="hibernate.connection.password">app</property>
          
@@ -14,6 +14,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
          
         <!-- Mapping with model class containing annotations -->
-        <mapping class="ch.bbv.fumetto.model.AgendaItem"/>
+        <mapping class="info.tiefenauer.jeeexample.model.AgendaItem"/>
     </session-factory>
 </hibernate-configuration>
