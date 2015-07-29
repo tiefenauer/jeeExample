@@ -26,7 +26,8 @@ Note where you installed each tool. In the following descriptions, the installat
 | Java SE JDK               | j8u45             | http://www.oracle.com/technetwork/java/javase/downloads/index.html | java.home |
 
 ## Environment variables
-You need to define a few environmental variables in order to make things work. Not all of them are really needed, but it won't hurt if they're there. Plus it will
+You need to define a few environmental variables in order to make things work. Not all of them are really needed, but it won't hurt if they're there.
+
 | Variable name   | Variable value  |
 |-----------------|-----------------|
 | ECLIPSE_HOME    | eclipse.home    |
@@ -34,6 +35,9 @@ You need to define a few environmental variables in order to make things work. N
 | JAVA_HOME       | java.home       |
 | JBOSS_HOME      | wildfly.home    |
 | MAVEN_HOME      | maven.home      |
+
+Optionally, you can add the following to your PATH. This will make Maven, Wildfly and Derby tools available from the command line (in case you need it).
+%MAVEN_HOME%\bin;%JBOSS_HOME%\bin;%DERBY_HOME%\bin
 
 ## Eclipse configuration
 To start/stop Wildfly from Eclipse and deploy the application to the server, switch to the JavaEE-Perspective and add Wildfly as a new Server.
