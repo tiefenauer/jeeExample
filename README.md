@@ -74,14 +74,7 @@ In order to use Derby as the underlying database, you need to install the JDBC-D
             <datasources>
             ...
                 <drivers>
-                    <driver name="h2" module="com.h2database.h2">
-                        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-                    </driver>
-                    <driver name="derby-embedded" module="org.apache.derby">
-                        <driver-class>org.apache.derby.jdbc.EmbeddedDriver</driver-class>
-                        <xa-datasource-class>org.apache.derby.jdbc.EmbeddedXADataSource</xa-datasource-class>
-                        <datasource-class>org.apache.derby.jdbc.EmbeddedDataSource</datasource-class>
-                    </driver>
+                ...
                     <driver name="derby-network" module="org.apache.derbynetwork">
                         <xa-datasource-class>org.apache.derby.jdbc.ClientXADataSource</xa-datasource-class>
                     </driver>
