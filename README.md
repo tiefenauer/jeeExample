@@ -44,6 +44,7 @@ Because Derby does not allow multiple connections when running in embedded mode,
 
 ### JDBC Driver installation
 In order to use Derby as the underlying database, you need to install the JDBC-Drivers as a module in Wildfly. To do so, you need to follow these steps
+
 1. create a folder in wildfly.home/modules/org/apache/derbynetwork/main. 
 2. copy derby.home/lib/derbyclient.jar to wildfly.home/modules/org/apache/derbynetwork/main
 3. create wildfly.home/modules/org/apache/derbynetwork/main/module.xml with the following content
